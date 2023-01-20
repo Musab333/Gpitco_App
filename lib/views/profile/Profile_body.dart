@@ -31,14 +31,20 @@ class Profile_body extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    IconButton(
-                      onPressed: () {
-                        Get.to(() => HomeView());
+                    GestureDetector(
+                      onTap: () {
+                        Get.off(() => HomeView());
                       },
-                      icon: Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                        size: 28,
+                      child: IconButton(
+                        onPressed: () {
+                          //print("lll");
+                          Get.off(() => HomeView());
+                        },
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                          size: 28,
+                        ),
                       ),
                     ),
                     Text_widets(

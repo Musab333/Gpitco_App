@@ -30,14 +30,14 @@ class About_app_body extends StatelessWidget {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   IconButton(
-                    onPressed: () => Get.to(() => HomeView()),
+                    onPressed: () => Get.off(() => HomeView()),
                     icon: const Icon(
                       Icons.arrow_back,
                       color: Colors.white,
                       size: 28,
                     ),
                   ),
-                  const Text_widets(
+                  Text_widets(
                     text: "حول التطبيق",
                     Colors: Colors.white,
                     size: 23,

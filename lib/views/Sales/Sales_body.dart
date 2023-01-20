@@ -34,7 +34,7 @@ class Sales_body extends StatelessWidget {
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
                     IconButton(
-                      onPressed: () => Get.to(() => HomeView()),
+                      onPressed: () => Get.off(() => HomeView()),
                       icon: const Icon(
                         Icons.arrow_back,
                         color: Colors.white,

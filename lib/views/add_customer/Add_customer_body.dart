@@ -161,8 +161,8 @@ class Add_customer_body extends StatelessWidget {
                               //   valueChoose = newVal;
                               // });
                             },
-                            icon: Icon(
-                              Icons.arrow_drop_down,
+                            icon: const Icon(
+                              Icons.arrow_back_ios_new,
                               color: Color(0xff184376),
                             ),
                             iconSize: 35,
@@ -179,13 +179,13 @@ class Add_customer_body extends StatelessWidget {
                                 .toList(),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 12, left: 200),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 12, left: 200),
                           child: Text(
                             "طبيعة الحساب",
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(

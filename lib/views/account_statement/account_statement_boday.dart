@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:gpitco/utils/ui/app_styles.dart';
@@ -12,8 +13,21 @@ import 'package:gpitco/views/widgets/Text_widets.dart';
 import '../home/home_view.dart';
 
 class account_statement_boday extends StatelessWidget {
-  const account_statement_boday({super.key});
+  account_statement_boday({super.key});
 
+  // Widget html = Html(
+  //   data: """<div>
+  //       <h1>Demo Page</h1>
+  //       <p>This is a fantastic product that you should buy!</p>
+  //       <h3>Features</h3>
+  //       <ul>
+  //         <li>It actually works</li>
+  //         <li>It exists</li>
+  //         <li>It doesn't cost much!</li>
+  //       </ul>
+  //       <!--You can pretty much put any html in here!-->
+  //     </div>""",
+  // );
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -56,168 +70,157 @@ class account_statement_boday extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsetsDirectional.only(top: 120),
-              child: SingleChildScrollView(
-                child: Container(
-                  height: 745,
-                  width: 398,
-                  decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(28)),
-                  child: Column(
-                    //  mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 28),
-                        child: Container(
-                          height: 90,
-                          width: 372,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12)),
-                          child: Row(
-                            children: [
-                              Container(
-                                child: Column(
-                                  children: [
-                                    const Padding(
-                                      padding: EdgeInsetsDirectional.only(
-                                          top: 15, start: 18),
-                                      child: Text_widets(
-                                        text: 'الكود',
-                                        size: 16,
-                                        Colors: AppStyles.fontColor,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10.0,
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsetsDirectional.only(
-                                          top: 12, start: 18),
-                                      child: Text_widets(
-                                        text: 'الاسم',
-                                        size: 16,
-                                        Colors: AppStyles.fontColor,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    const Padding(
-                                      padding: EdgeInsetsDirectional.only(
-                                          top: 15, start: 14),
-                                      child: Text_widets(
-                                        text: '003',
-                                        size: 16,
-                                        fontWeight: FontWeight.bold,
-                                        Colors: Colors.black,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10.0,
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsetsDirectional.only(
-                                          top: 12, start: 14),
-                                      child: Text_widets(
-                                        text: 'محمد غانم',
-                                        size: 16,
-                                        fontWeight: FontWeight.bold,
-                                        Colors: Colors.black,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    const Padding(
-                                      padding: EdgeInsetsDirectional.only(
-                                          top: 15, start: 14),
-                                      child: Text_widets(
-                                        text: 'التاريخ',
-                                        size: 16,
-                                        Colors: AppStyles.fontColor,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10.0,
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsetsDirectional.only(
-                                          top: 12, start: 14),
-                                      child: Text_widets(
-                                        text: 'كود الحساب',
-                                        size: 16,
-                                        Colors: AppStyles.fontColor,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    const Padding(
-                                      padding: EdgeInsetsDirectional.only(
-                                          top: 15, start: 14),
-                                      child: Text_widets(
-                                        text: '3:00 2022/11/11',
-                                        size: 16,
-                                        fontWeight: FontWeight.bold,
-                                        Colors: Colors.black,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10.0,
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsetsDirectional.only(
-                                          top: 12, start: 14),
-                                      child: Text_widets(
-                                        text: '01452',
-                                        size: 16,
-                                        fontWeight: FontWeight.bold,
-                                        Colors: Colors.black,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: 140,
-                        width: 370,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(28)),
-                        child: Table(
-                          //border: TableBorder.all(),
-                          children: [
-                            TableRow(
-                              children: [
-                                Text("التاريخ"),
-                              ],
-                            ),
-                            TableRow(children: [
-                              Text("التاريخ"),
-                            ])
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsetsDirectional.only(top: 120),
+            //   child: Container(
+            //     height: 745,
+            //     width: 398,
+            //     decoration: BoxDecoration(
+            //         color: Colors.grey[200],
+            //         borderRadius: BorderRadius.circular(28)),
+            //     child: Column(
+            //       //  mainAxisAlignment: MainAxisAlignment.center,
+            //       children: [
+            //         Padding(
+            //           padding: const EdgeInsets.only(top: 28),
+            //           child: Container(
+            //             height: 90,
+            //             width: 372,
+            //             decoration: BoxDecoration(
+            //                 borderRadius: BorderRadius.circular(12)),
+            //             child: Row(
+            //               children: [
+            //                 Container(
+            //                   child: Column(
+            //                     children: [
+            //                       const Padding(
+            //                         padding: EdgeInsetsDirectional.only(
+            //                             top: 15, start: 18),
+            //                         child: Text_widets(
+            //                           text: 'الكود',
+            //                           size: 16,
+            //                           Colors: AppStyles.fontColor,
+            //                         ),
+            //                       ),
+            //                       SizedBox(
+            //                         height: 10.0,
+            //                       ),
+            //                       const Padding(
+            //                         padding: EdgeInsetsDirectional.only(
+            //                             top: 12, start: 18),
+            //                         child: Text_widets(
+            //                           text: 'الاسم',
+            //                           size: 16,
+            //                           Colors: AppStyles.fontColor,
+            //                         ),
+            //                       ),
+            //                     ],
+            //                   ),
+            //                 ),
+            //                 Container(
+            //                   child: Column(
+            //                     children: [
+            //                       const Padding(
+            //                         padding: EdgeInsetsDirectional.only(
+            //                             top: 15, start: 14),
+            //                         child: Text_widets(
+            //                           text: '003',
+            //                           size: 16,
+            //                           fontWeight: FontWeight.bold,
+            //                           Colors: Colors.black,
+            //                         ),
+            //                       ),
+            //                       SizedBox(
+            //                         height: 10.0,
+            //                       ),
+            //                       const Padding(
+            //                         padding: EdgeInsetsDirectional.only(
+            //                             top: 12, start: 14),
+            //                         child: Text_widets(
+            //                           text: 'محمد غانم',
+            //                           size: 16,
+            //                           fontWeight: FontWeight.bold,
+            //                           Colors: Colors.black,
+            //                         ),
+            //                       ),
+            //                     ],
+            //                   ),
+            //                 ),
+            //                 Container(
+            //                   child: Column(
+            //                     children: [
+            //                       const Padding(
+            //                         padding: EdgeInsetsDirectional.only(
+            //                             top: 15, start: 14),
+            //                         child: Text_widets(
+            //                           text: 'التاريخ',
+            //                           size: 16,
+            //                           Colors: AppStyles.fontColor,
+            //                         ),
+            //                       ),
+            //                       SizedBox(
+            //                         height: 10.0,
+            //                       ),
+            //                       const Padding(
+            //                         padding: EdgeInsetsDirectional.only(
+            //                             top: 12, start: 14),
+            //                         child: Text_widets(
+            //                           text: 'كود الحساب',
+            //                           size: 16,
+            //                           Colors: AppStyles.fontColor,
+            //                         ),
+            //                       ),
+            //                     ],
+            //                   ),
+            //                 ),
+            //                 Container(
+            //                   child: Column(
+            //                     children: [
+            //                       const Padding(
+            //                         padding: EdgeInsetsDirectional.only(
+            //                             top: 15, start: 14),
+            //                         child: Text_widets(
+            //                           text: '3:00 2022/11/11',
+            //                           size: 16,
+            //                           fontWeight: FontWeight.bold,
+            //                           Colors: Colors.black,
+            //                         ),
+            //                       ),
+            //                       SizedBox(
+            //                         height: 10.0,
+            //                       ),
+            //                       const Padding(
+            //                         padding: EdgeInsetsDirectional.only(
+            //                             top: 12, start: 14),
+            //                         child: Text_widets(
+            //                           text: '01452',
+            //                           size: 16,
+            //                           fontWeight: FontWeight.bold,
+            //                           Colors: Colors.black,
+            //                         ),
+            //                       ),
+            //                     ],
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //         ),
+            //         SingleChildScrollView(
+            //           scrollDirection: Axis.horizontal,
+            //           child: Container(
+            //             height: 350,
+            //             width: 770,
+            //             decoration: BoxDecoration(
+            //                 color: Colors.white,
+            //                 borderRadius: BorderRadius.circular(28)),
+            //             child: html,
+            //           ),
+            //         )
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

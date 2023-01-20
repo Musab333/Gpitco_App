@@ -10,10 +10,15 @@ import 'package:gpitco/views/about_app/About_app.dart';
 import 'package:gpitco/views/account_statement/account_statement.dart';
 import 'package:gpitco/views/home/home_view.dart';
 import 'package:gpitco/views/payment_voucher/add_payment_voucher.dart';
+import 'package:gpitco/views/print/Print.dart';
+import 'package:gpitco/views/privacy_policies/Privacy_Policies.dart';
+import 'package:gpitco/views/reports/Reports.dart';
 import 'package:gpitco/views/splash/splash_view.dart';
+import 'package:gpitco/views/sttings/Sttings.dart';
+import 'package:gpitco/views/support_tech/Supporting.dart';
+import 'package:gpitco/views/users_privileges/users_privileges.dart';
 import 'package:http/http.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
-
 import 'controllers/choose_language_controller.dart';
 import 'controllers/home_controller.dart';
 import 'localization/demo_localization.dart';
@@ -22,22 +27,21 @@ import 'utils/helpers/local_string.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Get.put(LoginController());
+  Get.put(LoginController());
+  Get.put(SplashController());
+  Get.put(LanguageController());
+  //Get.put(HomeCotnroller());
+  Get.put(SplashController());
+  Get.lazyPut(() => LanguageController());
 
-  // Get.put(SplashController());
-  // Get.put(LanguageController());
-  // Get.put(HomeCotnroller());
-  // Get.put(SplashController());
-  // Get.lazyPut(() => LanguageController());
-
-  // Get.put(HomeCotnroller()); // make sure this is first
+  Get.put(HomeCotnroller()); // make sure this is first
   // Get.put(SecondController());
-  // await translator.init(
-  //   localeType: LocalizationDefaultType.asDefined,
-  //   language: "ar",
-  //   languagesList: <String>['ar', 'en'],
-  //   assetsDirectory: 'assets/lang/',
-  // );
+  await translator.init(
+    localeType: LocalizationDefaultType.asDefined,
+    language: "ar",
+    languagesList: <String>['ar', 'en'],
+    assetsDirectory: 'assets/lang/',
+  );
 
   runApp(
     LocalizedApp(
@@ -97,7 +101,7 @@ class _MyAppState extends State<MyApp> {
           fontFamily: "Cairo",
         ),
         // translations: LocaleString(),
-        home: Accountstatement(),
+        home: HomeView(),
         // builder: EasyLoading.init(),
         locale: _local,
         localizationsDelegates: const [

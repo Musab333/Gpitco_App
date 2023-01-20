@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:gpitco/utils/ui/app_styles.dart';
+import 'package:gpitco/views/support_tech/Supporting.dart';
 
 import '../widgets/Text_widets.dart';
 
@@ -20,17 +23,22 @@ class Privacy_Policies_body extends StatelessWidget {
               height: 55,
               width: 370,
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 25, 83, 153),
+                  color: const Color.fromARGB(255, 25, 83, 153),
                   borderRadius: BorderRadius.circular(28)),
               child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                      size: 28,
+                    IconButton(
+                      onPressed: () {
+                        Get.off(() => const Supporting());
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                        size: 28,
+                      ),
                     ),
                     const Text_widets(
                       text: "سياسة الخصوصية",

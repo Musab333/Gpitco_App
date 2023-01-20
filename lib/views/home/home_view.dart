@@ -1,18 +1,22 @@
 import 'package:bottom_bar_with_sheet/bottom_bar_with_sheet.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_simple_calculator/flutter_simple_calculator.dart';
 import 'package:get/get.dart';
 import 'package:gpitco/controllers/home_contorller.dart';
 import 'package:gpitco/controllers/home_controller.dart';
 import 'package:gpitco/controllers/login_controller.dart';
 import 'package:gpitco/localization/translater.dart';
 import 'package:gpitco/models/company_user.dart';
+import 'package:gpitco/utils/simple_calculator/SimpleCalculator.dart';
 import 'package:gpitco/utils/ui/app_styles.dart';
 import 'package:gpitco/utils/ui/constants.dart';
 import 'package:gpitco/views/invoices/create_new_purchase_invoice.dart';
 import 'package:gpitco/views/invoices/create_new_sell_invoice.dart';
 import 'package:gpitco/views/invoices/invoices_list_view.dart';
 import 'package:gpitco/views/payment_voucher/add_payment_voucher.dart';
+import 'package:gpitco/views/sttings/Sttings.dart';
 import '../../controllers/choose_language_controller.dart';
 import '../Sales/Sales.dart';
 import '../about_app/About_app.dart';
@@ -22,12 +26,15 @@ import '../payment/Payment_voucher.dart';
 import '../payment_voucher/result_view.dart';
 import '../profile/Profile.dart';
 import '../purchases/Purchase_returns.dart';
+import '../support_tech/Supporting.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({Key? key}) : super(key: key);
   GlobalKey<ScaffoldState>? skey = GlobalKey<ScaffoldState>();
 
   final company = Get.find<LoginController>().user;
+  double? _currentValue = 0;
+  var calc;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeCotnroller>(
@@ -69,13 +76,18 @@ class HomeView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: IconButton(
-                      onPressed: () => () {}, icon: const Icon(Icons.settings)),
+                      onPressed: () => () {
+                            Get.off(() => const Sttings());
+                            //print('Sttings');
+                          },
+                      icon: const Icon(Icons.settings)),
                 ),
                 IconButton(
-                    onPressed: () {
-                      skey!.currentState!.openEndDrawer();
-                    },
-                    icon: Icon(Icons.menu))
+                  onPressed: () {
+                    skey!.currentState!.openEndDrawer();
+                  },
+                  icon: const Icon(Icons.menu),
+                ),
               ],
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(
@@ -144,7 +156,7 @@ class HomeView extends StatelessWidget {
                         onPressed: () {
                           skey!.currentState!.closeEndDrawer();
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.close,
                           color: Colors.white,
                         ),
@@ -160,7 +172,7 @@ class HomeView extends StatelessWidget {
                   ),
                   Container(
                     child: GestureDetector(
-                      onTap: () => Get.to(() => const Profile()),
+                      onTap: () => Get.off(() => const Profile()),
                       child: Text(
                         translateKey(languageKeys.profileText!),
                         style: AppStyles.bodyBoldL
@@ -173,7 +185,7 @@ class HomeView extends StatelessWidget {
                     color: Colors.grey.shade300,
                   ),
                   GestureDetector(
-                    //onTap: () => Get.to(() => const Profile()),
+                    onTap: () => Get.off(() => const Supporting()),
                     child: Text(
                       translateKey(languageKeys.technicalSupportText!),
                       style: AppStyles.bodyBoldL
@@ -185,7 +197,7 @@ class HomeView extends StatelessWidget {
                     color: Colors.grey.shade300,
                   ),
                   GestureDetector(
-                    onTap: () => Get.to(() => const About_app()),
+                    onTap: () => Get.off(() => const About_app()),
                     child: Text(
                       translateKey(languageKeys.aboutText!),
                       style: AppStyles.bodyBoldL
@@ -275,27 +287,14 @@ class HomeView extends StatelessWidget {
                                     color: Colors.grey.shade200,
                                     borderRadius: BorderRadius.circular(15),
                                   ),
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.dashboard,
                                     size: 30,
                                     color: AppStyles.mainColor,
                                   ),
                                 ),
-                                Container(
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 10),
-                                  width: 55,
-                                  height: 55,
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.shade200,
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: Icon(
-                                    Icons.calculate,
-                                    size: 30,
-                                    color: AppStyles.mainColor,
-                                  ),
-                                )
+                                //SimpleCalculator
+                                const CalcButton(),
                               ],
                             ),
                           ),
@@ -496,7 +495,7 @@ class HomeView extends StatelessWidget {
               ),
 
               onSelectItem: (index) => debugPrint('$index'),
-              mainActionButtonTheme: MainActionButtonTheme(
+              mainActionButtonTheme: const MainActionButtonTheme(
                 color: AppStyles.selectionColor,
               ),
               sheetChild: Container(
@@ -518,7 +517,7 @@ class HomeView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.pause_presentation,
                             color: AppStyles.mainColor,
                             size: 30,
@@ -549,7 +548,7 @@ class HomeView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.pause_presentation,
                             color: AppStyles.mainColor,
                             size: 30,
@@ -607,3 +606,85 @@ class InvoiceItem extends StatelessWidget {
     );
   }
 }
+
+//---> Cal
+// class CalcButton extends StatefulWidget {
+//   const CalcButton({Key? key}) : super(key: key);
+
+//   @override
+//   _CalcButtonState createState() => _CalcButtonState();
+// }
+
+// class _CalcButtonState extends State<CalcButton> {
+//   double? _currentValue = 0;
+//   @override
+//   Widget build(BuildContext context) {
+//     var calc = SimpleCalculator(
+//       value: _currentValue!,
+//       hideExpression: false,
+//       hideSurroundingBorder: true,
+//       autofocus: true,
+//       onChanged: (key, value, expression) {
+//         setState(() {
+//           _currentValue = value ?? 0;
+//         });
+//         if (kDebugMode) {
+//           print('$key\t$value\t$expression');
+//         }
+//       },
+//       onTappedDisplay: (value, details) {
+//         if (kDebugMode) {
+//           print('$value\t${details.globalPosition}');
+//         }
+//       },
+//       theme: const CalculatorThemeData(
+//         borderColor: Colors.black,
+//         borderWidth: 2,
+//         displayColor: Colors.black,
+//         displayStyle: TextStyle(fontSize: 80, color: Colors.yellow),
+//         expressionColor: Colors.indigo,
+//         expressionStyle: TextStyle(fontSize: 20, color: Colors.white),
+//         operatorColor: Colors.pink,
+//         operatorStyle: TextStyle(fontSize: 30, color: Colors.white),
+//         commandColor: Colors.orange,
+//         commandStyle: TextStyle(fontSize: 30, color: Colors.white),
+//         numColor: Colors.grey,
+//         numStyle: TextStyle(fontSize: 50, color: Colors.white),
+//       ),
+//     );
+
+//     return Container(
+//       margin: const EdgeInsets.symmetric(horizontal: 10),
+//       width: 55,
+//       height: 55,
+//       decoration: BoxDecoration(
+//         color: Colors.grey.shade200,
+//         borderRadius: BorderRadius.circular(15),
+//       ),
+//       //---> Cal
+//       child: IconButton(
+//         onPressed: () {
+//           {
+//             showModalBottomSheet(
+//               isScrollControlled: true,
+//               context: context,
+//               builder: (BuildContext context) {
+//                 return SizedBox(
+//                   height: MediaQuery.of(context).size.height * 0.75,
+//                   child: calc,
+//                 );
+//               },
+//             );
+//           }
+//           ;
+//           //print('Cal');
+//         },
+//         icon: const Icon(
+//           Icons.calculate,
+//           size: 30,
+//           color: AppStyles.mainColor,
+//         ),
+//       ),
+//     );
+//   }
+// }

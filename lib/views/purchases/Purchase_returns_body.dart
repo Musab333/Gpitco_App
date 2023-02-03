@@ -21,37 +21,39 @@ class Purchase_returns_body extends StatelessWidget {
           Padding(
             padding: const EdgeInsetsDirectional.only(
                 top: 45, bottom: 12, start: 12),
-            child: Container(
-              height: 55,
-              width: 370,
-              decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 25, 83, 153),
-                  borderRadius: BorderRadius.circular(28)),
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    IconButton(
-                      onPressed: () => Get.to(() => HomeView()),
-                      icon: const Icon(
-                        Icons.arrow_back,
+            child: Expanded(
+              child: Container(
+                height: 55,
+                width: 370,
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 19, 67, 125),
+                    borderRadius: BorderRadius.circular(28)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      IconButton(
+                        onPressed: () => Get.to(() => HomeView()),
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                          size: 28,
+                        ),
+                      ),
+                      const Text_widets(
+                        text: "مردوات مشتريات",
+                        Colors: Colors.white,
+                        size: 23,
+                      ),
+                      const Icon(
+                        Icons.menu_open_sharp,
                         color: Colors.white,
                         size: 28,
                       ),
-                    ),
-                    const Text_widets(
-                      text: "مردوات مشتريات",
-                      Colors: Colors.white,
-                      size: 23,
-                    ),
-                    const Icon(
-                      Icons.menu_open_sharp,
-                      color: Colors.white,
-                      size: 28,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

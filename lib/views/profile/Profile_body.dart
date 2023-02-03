@@ -20,44 +20,46 @@ class Profile_body extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 45, bottom: 12, right: 12),
-            child: Container(
-              height: 55,
-              width: 370,
-              decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 25, 83, 153),
-                  borderRadius: BorderRadius.circular(28)),
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Get.off(() => HomeView());
-                      },
-                      child: IconButton(
-                        onPressed: () {
-                          //print("lll");
+            child: Expanded(
+              child: Container(
+                height: 55,
+                width: 370,
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 19, 67, 125),
+                    borderRadius: BorderRadius.circular(28)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
                           Get.off(() => HomeView());
                         },
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                          size: 28,
+                        child: IconButton(
+                          onPressed: () {
+                            //print("lll");
+                            Get.off(() => HomeView());
+                          },
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: Colors.white,
+                            size: 28,
+                          ),
                         ),
                       ),
-                    ),
-                    Text_widets(
-                      text: "الملف الشخصي",
-                      Colors: Colors.white,
-                      size: 23,
-                    ),
-                    Icon(
-                      Icons.menu_open_sharp,
-                      color: Colors.white,
-                      size: 28,
-                    ),
-                  ],
+                      Text_widets(
+                        text: "الملف الشخصي",
+                        Colors: Colors.white,
+                        size: 23,
+                      ),
+                      Icon(
+                        Icons.menu_open_sharp,
+                        color: Colors.white,
+                        size: 28,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -67,7 +69,7 @@ class Profile_body extends StatelessWidget {
               padding: const EdgeInsets.only(top: 120),
               child: Container(
                 height: 770,
-                width: 400,
+                width: double.infinity,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(28)),

@@ -8,6 +8,8 @@ import 'package:gpitco/controllers/splash_controller.dart';
 import 'package:gpitco/utils/ui/app_styles.dart';
 import 'package:gpitco/views/about_app/About_app.dart';
 import 'package:gpitco/views/account_statement/account_statement.dart';
+import 'package:gpitco/views/add_Supplier/Add_supplier.dart';
+import 'package:gpitco/views/add_customer/Add_customer.dart';
 import 'package:gpitco/views/home/home_view.dart';
 import 'package:gpitco/views/payment_voucher/add_payment_voucher.dart';
 import 'package:gpitco/views/print/Print.dart';
@@ -101,7 +103,7 @@ class _MyAppState extends State<MyApp> {
           fontFamily: "Cairo",
         ),
         // translations: LocaleString(),
-        home: HomeView(),
+        home: Accountstatement(),
         // builder: EasyLoading.init(),
         locale: _local,
         localizationsDelegates: const [

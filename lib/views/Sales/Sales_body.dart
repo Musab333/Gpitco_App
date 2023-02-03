@@ -21,37 +21,39 @@ class Sales_body extends StatelessWidget {
           Padding(
             padding: const EdgeInsetsDirectional.only(
                 top: 45, bottom: 12, start: 12),
-            child: Container(
-              height: 55,
-              width: 370,
-              decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 25, 83, 153),
-                  borderRadius: BorderRadius.circular(28)),
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    IconButton(
-                      onPressed: () => Get.off(() => HomeView()),
-                      icon: const Icon(
-                        Icons.arrow_back,
+            child: Expanded(
+              child: Container(
+                height: 55,
+                width: 370,
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 19, 67, 125),
+                    borderRadius: BorderRadius.circular(28)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      IconButton(
+                        onPressed: () => Get.off(() => HomeView()),
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                          size: 28,
+                        ),
+                      ),
+                      const Text_widets(
+                        text: "مردوات مبيعات",
+                        Colors: Colors.white,
+                        size: 23,
+                      ),
+                      const Icon(
+                        Icons.menu_open_sharp,
                         color: Colors.white,
                         size: 28,
                       ),
-                    ),
-                    const Text_widets(
-                      text: "مردوات مبيعات",
-                      Colors: Colors.white,
-                      size: 23,
-                    ),
-                    const Icon(
-                      Icons.menu_open_sharp,
-                      color: Colors.white,
-                      size: 28,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -61,7 +63,7 @@ class Sales_body extends StatelessWidget {
             child: SingleChildScrollView(
               child: Container(
                 height: 745,
-                width: 398,
+                width: double.infinity,
                 decoration: BoxDecoration(
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(28)),

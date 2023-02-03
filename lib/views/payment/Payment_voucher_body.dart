@@ -18,36 +18,38 @@ class Payment_voucher_body extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 45, bottom: 12, left: 12),
-              child: Container(
-                height: 55,
-                width: 370,
-                decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 25, 83, 153),
-                    borderRadius: BorderRadius.circular(28)),
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () => Get.to(() => HomeView()),
-                        icon: Icon(
-                          Icons.arrow_back,
+              child: Expanded(
+                child: Container(
+                  height: 55,
+                  width: 370,
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 19, 67, 125),
+                      borderRadius: BorderRadius.circular(28)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                          onPressed: () => Get.to(() => HomeView()),
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                        ),
+                        Text_widets(
+                          text: "سند القبض",
+                          Colors: Colors.white,
+                          size: 23,
+                        ),
+                        Icon(
+                          Icons.menu_open_sharp,
                           color: Colors.white,
                           size: 28,
                         ),
-                      ),
-                      Text_widets(
-                        text: "سند القبض",
-                        Colors: Colors.white,
-                        size: 23,
-                      ),
-                      Icon(
-                        Icons.menu_open_sharp,
-                        color: Colors.white,
-                        size: 28,
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

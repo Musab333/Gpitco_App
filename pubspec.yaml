@@ -23,6 +23,8 @@ dependencies:
   flutter_html: ^2.2.1
   flutter_simple_calculator:
   image: ^3.0.2
+  esc_pos_bluetooth: ^0.4.1
+  qr_flutter: ^4.0.0
   
 
 dev_dependencies:
